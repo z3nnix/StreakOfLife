@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-
 import subprocess
 import sys
 import os
@@ -47,10 +45,6 @@ def git_commit(date_str):
 
 
 def main():
-    if not os.path.exists(BIN):
-        print("building gameoflife...", file=sys.stderr)
-        subprocess.run(["make"], check=True)
-
     output = run_game()
     readme = format_readme(output)
 
@@ -63,4 +57,6 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    while True:
+        main()
+        time.sleep(86_400)
